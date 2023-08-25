@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/de/thumb/6/68/Fritz%21_Logo.svg/120px-Fritz%21_Logo.svg.png?20100909221604" />
+  <title>Fritz!Box Fernzugriff</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images.unsplash.com/photo-1507936580189-3816b4abf640?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover; /* Ändere "contain" zu "cover" oder bestimmten Maßen, um die Größe anzupassen */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center; /* Zentriert das Hintergrundbild sowohl horizontal als auch vertikal */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      padding: 20px;
+    }
+    .password-container {
+      padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(3px);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      text-align: center;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      
+  font-size: 16px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(3px);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  
+      
+    }
+    button {
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    /* Neuer Stil für die Benachrichtigung */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: rgba(0, 123, 255, 0.9);
+      color: white;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var emailInput = document.getElementById("nutzername");
+      
+      emailInput.addEventListener("dblclick", function() {
+        navigator.clipboard.writeText(emailInput.value)
+          .then(function() {
+            showNotification("Nutzername wurde kopiert!");
+          })
+          .catch(function(err) {
+            console.error("Unable to copy text: ", err);
+          });
+      });
+      
+      var passwordInput = document.getElementById("password");
+      
+      passwordInput.addEventListener("dblclick", function() {
+        navigator.clipboard.writeText(passwordInput.value)
+          .then(function() {
+            showNotification("Passwort wurde kopiert!");
+          })
+          .catch(function(err) {
+            console.error("Unable to copy text: ", err);
+          });
+      });
+
+      function showNotification(message) {
+        var notification = document.createElement("div");
+        notification.className = "notification";
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(function() {
+          notification.remove();
+        }, 2000); // Remove notification after 2 seconds
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="password-container">
+    <h2>Passwort</h2>
+    <input type="text" id="nutzername" value="fritz1465" readonly>
+    <input type="text" id="password" value="maul6474" readonly>
+  </div>
+</body>
+</html>

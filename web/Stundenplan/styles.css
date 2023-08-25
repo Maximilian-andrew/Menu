@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://de.share-your-photo.com/img/49fe55eaef.jpg');
+    background-size: contain; /* Ändere "contain" zu "cover" oder bestimmten Maßen, um die Größe anzupassen */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center; /* Zentriert das Hintergrundbild sowohl horizontal als auch vertikal */
+  }  
