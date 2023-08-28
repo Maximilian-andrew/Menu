@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Login Seite</title>
-</head>
-<body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <div class="input-container">
-            <form id="login-form">
-                <input type="text" id="username" placeholder="Benutzername" required>
-                <input type="password" id="password" placeholder="Passwort" required>
-                <a href="http://forms.gle/u1ps5zHa5TuhhroN8">Registrieren</a>
-                <button type="submit">Anmelden</button>
-            </form>
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Login Seite</title>
+    </head>
+    <body>
+        <div class="login-container">
+            <h1>Login</h1>
+            <div class="input-container">
+                <form id="login-form">
+                    <input type="text" id="identifier" placeholder="E-Mail-Adresse oder Benutzername" required>
+                    <input type="password" id="password" placeholder="Passwort" required>
+                    <a href="https://forms.gle/4aGw6TK5UBoLTrGS7">Registrieren</a>
+                    <button type="submit">Anmelden</button>
+                </form>
+            </div>
+            <div class="success-message" id="success-message">Erfolgreich angemeldet</div>
         </div>
-        <div class="success-message" id="success-message">Erfolgreich angemeldet</div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+        <script src="script.js"></script>
+    </body>
+    </html>
