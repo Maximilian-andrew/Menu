@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/de/thumb/6/68/Fritz%21_Logo.svg/120px-Fritz%21_Logo.svg.png?20100909221604" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Schul Passwörter</title>
   <style>
     body {
@@ -73,12 +74,13 @@
       
     }
     button {
-      padding: 8px 15px;
+      padding: 10px 20px;
       background-color: #007bff;
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin: 4px;
     }
     button:hover {
       background-color: #0056b3;
@@ -171,18 +173,39 @@
         }, 2000); // Remove notification after 2 seconds
       }
     });
+    function copyText(elementId) {
+      var inputElement = document.getElementById(elementId);
+      inputElement.select();
+      document.execCommand("copy");
+      showNotification("Inhalt kopiert: " + inputElement.value);
+    }
+
+    function showNotification(message) {
+      var notification = document.createElement("div");
+      notification.className = "notification";
+      notification.textContent = message;
+      document.body.appendChild(notification);
+
+      setTimeout(function() {
+        notification.remove();
+      }, 2000); // Remove notification after 2 seconds
+    }
   </script>
 </head>
 <body>
   <div class="password-container">
-    <h2>Schul Passwort</h2>
+    <h2>Schule</h2>
     <input type="text" id="nutzername" value="maximilian.kluge" readonly>
     <input type="text" id="password" value="Max0806%" readonly>
+    <button class="copy-button" onclick="copyText('nutzername')"><b>Nutzername</b></button>
+    <button class="copy-button" onclick="copyText('password')"><b>Passwort</b></i></button>
   </div>
   <div class="password-container">
-    <h2>Lernsax Passwort</h2>
+    <h2>Lernsax</h2>
     <input type="text" id="nutzername2" value="maximilianandrew.kluge@helmholtzschule.lernsax.de" readonly>
-    <input type="text" id="password2" value="MaxhW21#GozG0d2" readonly>
+    <input type="text" id="password2" value="!Max0806%" readonly>
+    <button class="copy-button" onclick="copyText('nutzername2')"><b>Nutzername</b></button>
+    <button class="copy-button" onclick="copyText('password2')"><b>Passwort</b></button>
   </div>
 </body>
 </html>
